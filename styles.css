@@ -1,5 +1,40 @@
+/* Variables */
+
 :root {
-  --gris: #283345;
+  --gray: #283345;
+  --lightgray: #9298a1;
   --azul: #3871ff;
   --blanco: #ffffff;
+}
+
+/* Estandarizaciones de desarrollo */
+
+img {
+  width: 30px;
+  height: auto;
+  padding: 0;
+}
+
+
+/* header */
+header {
+  background-color: var(--gray);
+}
+
+/* Navbar */
+.navbar-toggler-icon {
+  background-image: none;
+}
+.navbar {
+  background-color: var(--gray);
+  max-width: 1024px;
+  margin: auto;
+}
+
+.nav-item {
+  color: var(--blanco);
+}
+
+#navbarSupportedContent {
+  justify-content: end;
 }
