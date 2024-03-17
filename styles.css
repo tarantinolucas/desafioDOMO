@@ -26,19 +26,27 @@ img {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--gray);
 }
 
 /* Background img */
 
+main {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+}
+
 #bg-img {
   position: absolute;
-  right: 0;
   top: 0;
-  width: 40vw;
+  right: 0;
+  width: 100%;
   height: 100%;
-  background-image: url(assets/asset-background.jpg);
+  background-image: url("./assets/asset-background.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center right;
+  z-index: -1;
 }
 
 /* Header */
@@ -55,7 +63,7 @@ body {
 
 .main-logo {
   color: var(--blanco);
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   text-decoration: none;
   margin-right: auto;
 }
@@ -91,6 +99,7 @@ body {
 }
 
 .link-item {
+  font-size: 1.6rem;
   margin-top: 2rem;
   color: var(--lightgray);
   text-decoration: none;
@@ -101,11 +110,11 @@ body {
 .link-item::after {
   position: absolute;
   content: "";
-  background-color: var(--blanco);
+  background-color: var(--lightgray);
   bottom: -5px;
   left: 0;
   width: 0%;
-  height: 1px;
+  height: 2px;
   transition: 0.3s ease all;
 }
 
@@ -149,6 +158,62 @@ body {
 
 .button-menu.close span:nth-child(3) {
   display: none;
+}
+
+/* Main section */
+
+#main-section {
+  padding: 25px 15px;
+  max-width: 1024px;
+  margin: auto;
+}
+
+h3 {
+  font-size: 2.3rem;
+  font-weight: 600;
+  line-height: 3rem;
+  color: var(--blanco);
+  width: 70%;
+}
+
+p {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--lightgray);
+}
+
+#main-section button {
+  background-color: inherit;
+  margin-top: 25px;
+  border: solid 1px var(--lightgray);
+  border-radius: 4px;
+  padding: 7px 15px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 400;
+  color: var(--lightgray);
+}
+
+#main-section button img {
+  height: 11px;
+  width: auto;
+  margin-left: 7px;
+  margin-bottom: auto;
+}
+
+#main-section .main-second-btn {
+  background-color: var(--azul);
+  color: var(--blanco);
+  border: none;
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+#main-section .main-second-btn span {
+  display: inline-flex;
+  align-items: center;
 }
 
 /* Media queries */
@@ -198,5 +263,9 @@ body {
     height: 1.6rem;
     width: auto;
     margin-right: 3px;
+  }
+
+  .link-item::after {
+    background-color: var(--blanco);
   }
 }
