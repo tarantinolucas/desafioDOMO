@@ -9,23 +9,20 @@
   font-family: "Montserrat Alternates", sans-serif;
   --gray: #283345;
   --lightgray: #9298a1;
-  --azul: #3871ff;
-  --blanco: #ffffff;
+  --blue: #3871ff;
+  --lightblue: #99b7ff;
+  --white: #ffffff;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 62.5%;
-}
-
-img {
-  width: 30px;
-  height: auto;
-  padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 /* Background img */
@@ -34,35 +31,46 @@ main {
   position: relative;
   width: 100%;
   height: fit-content;
+  background-color: var(--gray);
 }
 
 #bg-img {
   position: absolute;
-  top: 0;
+  top: 5px;
   right: 0;
   width: 100%;
-  height: 100%;
+  height: 10%;
   background-image: url("./assets/asset-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center right;
-  z-index: -1;
+  z-index: 10;
+}
+
+/* Clases globales */
+
+.padding1024 {
+  padding: 25px 15px;
+  max-width: 1024px;
 }
 
 /* Header */
 
 .main-header {
-  max-width: 1024px;
   height: 50px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 25px 15px;
   margin: auto;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  background-color: var(--gray);
+  padding: 10px 15px;
 }
 
 .main-logo {
-  color: var(--blanco);
+  color: var(--white);
   font-size: 1.8rem;
   text-decoration: none;
   margin-right: auto;
@@ -133,6 +141,8 @@ main {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  margin-top: 0;
+  margin-right: 30px;
 }
 
 .button-menu span {
@@ -140,7 +150,7 @@ main {
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  background: var(--blanco);
+  background: var(--white);
   border-radius: 3px;
   transform-origin: 4px 0px;
   transition: all 0.2s linear;
@@ -166,33 +176,39 @@ main {
   padding: 25px 15px;
   max-width: 1024px;
   margin: auto;
+  position: relative;
+  z-index: 10;
+  padding-top: 70px;
 }
 
 h3 {
   font-size: 2.3rem;
   font-weight: 600;
   line-height: 3rem;
-  color: var(--blanco);
+  color: var(--white);
   width: 70%;
 }
 
 p {
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--lightgray);
+  line-height: 2rem;
 }
 
-#main-section button {
+button {
   background-color: inherit;
   margin-top: 25px;
   border: solid 1px var(--lightgray);
   border-radius: 4px;
-  padding: 7px 15px;
+  padding: 7px 20px;
   font-family: inherit;
   font-size: 1.1rem;
   cursor: pointer;
   font-weight: 400;
   color: var(--lightgray);
+  position: relative;
+  z-index: 10;
 }
 
 #main-section button img {
@@ -203,12 +219,24 @@ p {
 }
 
 #main-section .main-second-btn {
-  background-color: var(--azul);
-  color: var(--blanco);
+  background-color: var(--blue);
+  color: var(--white);
   border: none;
   margin-left: 10px;
   display: inline-flex;
   align-items: center;
+}
+
+button:hover {
+  background-color: #9298a1;
+  transition: 500ms ease-in;
+  color: var(--white);
+}
+
+#main-section .main-second-btn:hover {
+  background-color: var(--lightblue);
+  transform: translateX(25px);
+  transition: 500ms ease-out;
 }
 
 #main-section .main-second-btn span {
@@ -216,9 +244,371 @@ p {
   align-items: center;
 }
 
+/* Services section */
+
+h4 {
+  font-size: 1.8rem;
+  color: var(--white);
+}
+
+h6 {
+  font-size: 1.2rem;
+  margin: 13px 0;
+  min-height: 30px;
+}
+
+#services-section {
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+  position: relative;
+  z-index: 100;
+}
+
+#div-services {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card {
+  background-color: var(--white);
+  padding: 35px 25px;
+  max-width: 200px;
+  margin: 15px auto;
+  position: relative;
+  z-index: 10;
+}
+
+.service-card div {
+  background-color: var(--blue);
+  width: fit-content;
+  margin: auto;
+  border-radius: 50%;
+  padding: 12px;
+}
+
+.service-card img {
+  width: 20px;
+}
+
+#div-services p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Technology section */
+
+#techs-section {
+  background-color: var(--blue);
+  padding-top: 100px;
+  position: relative;
+  top: -80px;
+  z-index: 0;
+}
+
+#techs-section div {
+  margin: auto;
+}
+
+h5 {
+  color: var(--white);
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+#techs-section p {
+  color: var(--lightblue);
+  font-weight: 500;
+}
+#tech-img-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  max-width: 200px;
+}
+#techs-section img {
+  width: 55px;
+  margin: 20px;
+}
+
+/* Clients section */
+#clients-section {
+  background-color: var(--white);
+  position: relative;
+  top: -90px;
+  padding-top: 50px;
+  padding-bottom: 220px;
+}
+#clients-section p {
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.7rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 20px;
+}
+#clients-section img {
+  width: 70px;
+}
+
+.glide__slide {
+  align-self: center;
+  text-align: center;
+}
+
+/* More info section */
+#info-section {
+  position: relative;
+  top: -260px;
+}
+.card-info-div {
+  background-color: var(--blue);
+  margin: 15px;
+  padding: 25px 15px;
+}
+
+.card-info-div h5 {
+  font-size: 1.8rem;
+}
+
+.card-info-div p {
+  color: var(--lightblue);
+}
+
+.card-info-div button {
+  color: var(--white);
+  border-color: var(--lightblue);
+}
+
+.card-info-div button:hover {
+  background-color: var(--lightblue);
+}
+
+.card-info-div img {
+  width: 70%;
+  display: block;
+  margin: auto;
+  margin-bottom: -3px;
+  margin-top: 25px;
+}
+
+.pb-0 {
+  padding-bottom: 0;
+}
+/* Footer */
+footer .main-logo {
+  font-size: 1.4rem;
+}
+
+footer {
+  background-color: var(--gray);
+  margin-top: -200px;
+  position: relative;
+  padding: 15px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer a {
+  color: var(--lightgray);
+}
+
+#social-list {
+  display: flex;
+}
+
+#social-list img:hover {
+  transform: scale(1.3);
+  transition: 500ms ease-out;
+}
+
+ul img {
+  width: 15px;
+  margin-right: 15px;
+}
+
+footer li {
+  font-size: 1.1rem;
+}
+footer strong {
+  color: var(--white);
+}
+
+#site-links-section ul {
+  margin-top: 25px;
+}
+
+#site-links-section li {
+  margin-top: 10px;
+}
+
+.underline-effect {
+  position: relative;
+  text-decoration: none;
+}
+
+.underline-effect::after {
+  position: absolute;
+  content: "";
+  background-color: var(--lightgray);
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  transition: 0.3s ease all;
+}
+
+.underline-effect:hover::after {
+  width: 100%;
+}
+
+footer > p {
+  text-align: right;
+  max-width: 1024px;
+  margin: auto;
+}
+
 /* Media queries */
 
-@media screen and (min-width: 768px) {
+/* Screen width 320px */
+
+@media (min-width: 320px) {
+  /* Main section */
+  #bg-img {
+    height: 13%;
+    top: 130px;
+    right: -75px;
+  }
+
+  /* Footer */
+  #site-links-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 45px;
+  }
+}
+
+/* Screen width 500px */
+
+@media (min-width: 500px) {
+  /* Main section */
+  #bg-img {
+    top: 20px;
+    right: -90px;
+    height: 17%;
+  }
+
+  /* Main section */
+  #main-section p {
+    width: 350px;
+  }
+
+  /* More info section */
+  #info-section {
+    top: -235px;
+  }
+  .card-info-div {
+    display: flex;
+  }
+  .card-info-div img {
+    width: 40%;
+    margin-bottom: 0px;
+  }
+  #div-services {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* Screen width 650px */
+
+@media (min-width: 650px) {
+  /* Main section */
+  #bg-img {
+    top: -40px;
+    right: -90px;
+    height: 22%;
+  }
+
+  /* Techs section */
+
+  #techs-section {
+    width: 100%;
+
+    padding-bottom: 50px;
+  }
+
+  #techs-container {
+    display: flex;
+  }
+
+  #techs-section #techs-info {
+    max-width: 350px;
+    margin-left: 0;
+  }
+
+  /* Info section */
+  #info-section {
+    display: flex;
+  }
+
+  .pb-0 {
+    padding-bottom: 25px;
+    width: 75%;
+  }
+
+  .card-info-div img {
+    margin-bottom: -25px;
+  }
+
+  #info-section {
+    top: -255px;
+  }
+
+  /* Footer */
+  #div-footer-sections {
+    max-width: 1024px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  #logo-section {
+    width: 25%;
+  }
+
+  #site-links-section {
+    width: 55%;
+    justify-content: space-around;
+  }
+
+  #site-links-section ul,
+  #site-links-section li:first-child {
+    margin-top: 0;
+  }
+}
+
+/* Screen width 800px */
+
+@media (min-width: 800px) {
+  /* Header */
+
+  .main-header {
+    position: relative;
+    z-index: 10;
+    background-color: transparent;
+  }
+
+  .link-item {
+    font-size: 1.2rem;
+  }
   .button-menu {
     display: none;
   }
@@ -254,7 +644,7 @@ p {
   }
 
   .active {
-    color: var(--blanco);
+    color: var(--white);
     font-weight: 600;
   }
 
@@ -266,6 +656,97 @@ p {
   }
 
   .link-item::after {
-    background-color: var(--blanco);
+    background-color: var(--white);
+  }
+
+  /* Main section */
+  #main-section p {
+    max-width: 350px;
+  }
+
+  #bg-img {
+    width: 100%;
+    height: 35%;
+    top: -35px;
+  }
+
+  #main-section {
+    margin-top: 100px;
+  }
+  /* Services section */
+  #services-section {
+    max-width: 1024px;
+    margin-top: 100px;
+    position: relative;
+    z-index: 10;
+  }
+  #div-services {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #services-section p {
+    max-width: 390px;
+    margin: auto;
+  }
+
+  .service-card {
+    max-width: 260px;
+  }
+
+  .service-card p {
+    padding: 0 20px;
+  }
+
+  /* Tech srction */
+  #techs-section #techs-info {
+    margin: auto;
+    max-width: 400px;
+  }
+
+  /* Clients section */
+  .glide-container {
+    max-width: 1024px;
+    margin: auto;
+  }
+
+  /* More info section */
+  #info-section {
+    max-width: 1024px;
+    margin: auto;
+    top: -255px;
+  }
+
+  .card-info-div {
+    width: 50%;
+  }
+
+  .card-text {
+    width: 50%;
+  }
+  .card-info-div img {
+    margin: 0 0 -25px 0;
+  }
+
+  footer {
+    padding: 35px;
+  }
+}
+
+/* Screen width 1024px */
+
+@media (min-width: 1024px) {
+  p {
+    font-size: 1.4rem;
+  }
+
+  #bg-img {
+    width: 80%;
+    height: 50%;
+    top: -180px;
+  }
+
+  .link-item {
+    font-size: 1.4rem;
   }
 }
